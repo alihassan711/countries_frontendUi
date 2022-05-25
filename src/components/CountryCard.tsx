@@ -1,5 +1,7 @@
 import React from "react";
 import withStyles from "@material-ui/core/styles/withStyles";
+import { ICountry } from "../types/Country";
+import { IClassTypes } from "../types/ClassTypes";
 import {
   Card,
   CardActionArea,
@@ -9,7 +11,7 @@ import {
   Theme,
 } from "@material-ui/core";
 
-const styles = (theme:Theme) => ({
+const styles = (theme: Theme) => ({
   card: {
     width: "100%",
     maxWidth: "265px",
@@ -38,12 +40,16 @@ const styles = (theme:Theme) => ({
   },
 });
 
-function Country(props: { classes: any; datas: any; onClickCard: any; }) {
+function Country(props: {
+  classes: IClassTypes;
+  datas: ICountry[];
+  onClickCard: Function;
+}) {
   const { classes, datas, onClickCard } = props;
 
   return (
     <React.Fragment>
-      {datas.map((country: { name: { common: boolean | React.ReactChild | React.ReactFragment | React.ReactPortal | null | undefined; }; flags: { png: string | undefined; }; population: { toString: () => string; }; region: boolean | React.ReactChild | React.ReactFragment | React.ReactPortal | null | undefined; capital: {} | null | undefined; }, index: React.Key | null | undefined) => (
+      {datas.map((country, index: number) => (
         <Card elevation={0} className={classes.card} key={index}>
           <CardActionArea onClick={() => onClickCard(country.name.common)}>
             <CardMedia

@@ -2,7 +2,7 @@ import React from "react";
 import withStyles from "@material-ui/core/styles/withStyles";
 import { InputBase, InputAdornment, Theme } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
-
+import { IClassTypes } from "../types/ClassTypes";
 const styles = (theme: Theme) => ({
   lightIcon: {
     color: "var(--text)",
@@ -38,12 +38,16 @@ const InputSearch = withStyles((theme: Theme) => ({
   },
 }))(InputBase);
 
-function Search(props: { classes: any; state: any; handleFetchSearch: any; }) {
+function Search(props: {
+  classes: IClassTypes;
+  state: string;
+  handleFetchSearch: Function;
+}) {
   const { classes, state, handleFetchSearch } = props;
 
   React.useEffect(() => {
     function initListeners() {
-      document.getElementById("search")!.addEventListener("input", (e:any) => {
+      document.getElementById("search")!.addEventListener("input", (e: any) => {
         fetchSearch(e.target.value);
       });
     }
@@ -58,7 +62,6 @@ function Search(props: { classes: any; state: any; handleFetchSearch: any; }) {
   return (
     <InputSearch
       id="search"
-    
       placeholder="Search for a country..."
       startAdornment={
         <InputAdornment position="start">

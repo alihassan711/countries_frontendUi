@@ -12,6 +12,7 @@ import {
 } from "@material-ui/core";
 import MoonFillIcon from "@material-ui/icons/Brightness2";
 import MoonOutlinedIcon from "@material-ui/icons/Brightness2Outlined";
+import { IClassTypes } from "../types/ClassTypes";
 
 const styles: any = (theme: Theme) => ({
   appbar: {
@@ -46,7 +47,7 @@ function HideOnScroll(props: { children: any; window: any }) {
   const trigger = useScrollTrigger({ target: window ? window() : undefined });
 
   return (
-    <Slide appear={false} direction="down" in={!trigger} >
+    <Slide appear={false} direction="down" in={!trigger}>
       {children}
     </Slide>
   );
@@ -57,8 +58,7 @@ HideOnScroll.propTypes = {
   window: PropTypes.func,
 };
 
-function Appbar(props: { classes: any; state: any; setState: any }) {
-
+function Appbar(props: { classes: IClassTypes; state: string; setState: Function }) {
   const { classes, state, setState } = props;
 
   const handleLightMode = () => {

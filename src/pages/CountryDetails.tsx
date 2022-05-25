@@ -8,7 +8,7 @@ import BackIcon from "@material-ui/icons/ArrowBack";
 import Media from "react-media";
 import { API_URL_NAME, API_URL_CODE } from "../apiCall/ApiCall";
 import { ICountry } from "../types/Country";
-
+import { IClassTypes } from "../types/ClassTypes";
 const styles: any = (theme: Theme) => ({
   wrapperDetails: {
     display: "flex",
@@ -123,7 +123,12 @@ const BorderButton = withStyles((theme: Theme) => ({
   },
 }))(Button);
 
-function CountryDetails(props: { classes: any; state: any; setState: any }) {
+function CountryDetails(props: {
+  classes: IClassTypes;
+  state: string;
+  setState: Function;
+}) {
+
   const navigate = useNavigate();
   const params = useParams();
   const { classes, state, setState } = props;

@@ -11,6 +11,7 @@ import Country from "../components/CountryCard";
 import Skeleton from "../components/CountriesSkeleton";
 import { API_URL_ALL, API_URL_NAME, API_URL_REGION } from "../apiCall/ApiCall";
 import { ICountry } from "../types/Country";
+import { IClassTypes } from "../types/ClassTypes";
 
 const styles = (theme: Theme) => ({
   wrapperDashboard: {
@@ -45,7 +46,7 @@ const styles = (theme: Theme) => ({
   },
 });
 
-function Dashboard(props: { classes: any; state: any; setState: any }) {
+function Dashboard(props: { classes: IClassTypes; state: string; setState: Function }) {
   const { classes, state, setState } = props;
   const [loading, setLoading] = React.useState(true);
   const [countries, setCountries] = React.useState<ICountry[]>([]);

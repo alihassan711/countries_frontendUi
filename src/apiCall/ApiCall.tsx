@@ -6,5 +6,5 @@ export const API_URL_NAME = (name: string) =>
 export const API_URL_REGION = (region: string) =>
   `https://restcountries.com/v3.1/region/${region}`;
 
-export const API_URL_CODE = (borders: any[])=>
+export const API_URL_CODE = (borders: string[])=>
   `https://restcountries.com/v3.1/alpha?codes=${borders.join(",")}`;

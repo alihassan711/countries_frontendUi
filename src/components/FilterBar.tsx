@@ -3,6 +3,7 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import ArrowUpIcon from "@material-ui/icons/ExpandLess";
 import ArrowDownIcon from "@material-ui/icons/ExpandMore";
 import { Theme } from "@material-ui/core";
+import { IClassTypes } from "../types/ClassTypes";
 
 const styles: any = (theme: Theme) => ({
   dropdown: {
@@ -64,7 +65,11 @@ const styles: any = (theme: Theme) => ({
   },
 });
 
-function Filter(props: { classes: any; state: any; handleFetchRegion: any }) {
+function Filter(props: {
+  classes: IClassTypes;
+  state: string;
+  handleFetchRegion: Function;
+}) { 
   const { classes, state, handleFetchRegion } = props;
   const [open, setOpen] = React.useState(false);
 

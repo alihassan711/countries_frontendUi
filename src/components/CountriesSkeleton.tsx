@@ -1,6 +1,7 @@
 import React from "react";
 import withStyles from "@material-ui/core/styles/withStyles";
 import { Grid, Theme } from "@material-ui/core";
+import { IClassTypes } from "../types/ClassTypes";
 
 const styles: any = (theme: Theme) => ({
   skeleton: {
@@ -16,7 +17,7 @@ const styles: any = (theme: Theme) => ({
   },
 });
 
-function CountriesSkeleton(props: { classes: any }) {
+function CountriesSkeleton(props: { classes: IClassTypes }) {
   const { classes } = props;
 
   return (
